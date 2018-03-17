@@ -1,7 +1,11 @@
-console.log('init');
+'use strict';
 var Decorator = function(target,property,filter,predicator){
 	try{
-		checkForConstructionErrors();	
+		checkForConstructionErrors();
+		Object.defineProperty(this,'target',{value: target,writable: false});
+		Object.defineProperty(this,'property',{value: property,writable: false});
+		Object.defineProperty(this,'filter',{value: filter,writable: false});
+		Object.defineProperty(this,'predicator',{value: predicator,writable: false});
 	}catch(e){
 		console.error(e);		
 	}
@@ -13,6 +17,13 @@ var Decorator = function(target,property,filter,predicator){
 		if(predicator && !(predicator instanceof Function)) throw "Decorator construction error: 4rd param is not a function!";	
 	}	
 }
+
+Decorator.prototype.set = function(value) {
+	if(this.predicator === undefined || this.predicator(value,this.target)){
+		var _prop = this.target[this.property];
+		_prop instanceof Function ? _prop(this.filter(value)) : _prop = this.filter(value);
+	}
+};
 
 
 
