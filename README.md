@@ -3,7 +3,7 @@ Decorator pattern for JavaScript
 ## For fast usage
 ### Syntax
 ```
-Object.newproperty = Decoratore(property,filter,predicator);
+Object.newproperty = Decor(property,filter,predicator);
 ```
 ### Examples
 ```javascript
@@ -16,7 +16,7 @@ var inpNode = document.getElementById('inp');// DOM Node as an object for decora
 		return !isNaN(value) && currency.length <= 3;
 	}
 
-	inpNode.cur = decorator('value',filter,predicator);// add filter for base property 'value'
+	inpNode.cur = decor('value',filter,predicator);// add filter for base property 'value'
 	inpNode.cur(20,'eur') //HTML input value '20 eur.'
 	inpNode.cur(20,'rubles') //no chacnges, blocked by predicator
 	inpNode.cur('30','rub') //HTML input value '30 rub.'

@@ -1,5 +1,5 @@
 'use strict';
-function decoratorate(property,filter,predicator){
+function decor(property,filter,predicator){
 	return function(){
 		var target = this;
 		if(predicator === undefined || predicator.apply(target,arguments)){
