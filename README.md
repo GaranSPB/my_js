@@ -1,7 +1,6 @@
 # Decorator
 Decorator pattern for JavaScript
 ## For fast usage
-### Syntax
 ```
 Object.newproperty = decor(property,filter,predicator);
 ```
@@ -22,10 +21,35 @@ var inpNode = document.getElementById('inp');// DOM Node as an object for decora
 	inpNode.cur('30','rub') //HTML input value '30 rub.'
 	inpNode.cur('a320','rubles') //no chacnges, blocked by predicator
 ```
-## USAGE
-### Syntax
+## Syntax
+### Constructor
 ```
-var decorator = new Decorator(name,target,property,filter,predicator);
+var decorator = new Decorator(name,target,property,filter[,predicator]);
+```
+#### name
+```
+New property name for **target** object 
+Type : String
+```
+#### target
+```
+Owner of decorating **property**
+Type : Object
+```
+#### property
+```
+Decorating **targets property**
+Type : mixed
+```
+#### filter
+```
+Makes changes to input value transfers it to **targets property**
+Type : function
+```
+#### predicator | optional
+```
+Takes a value and determines to execute the next script or not. Returns **true** or **false**
+Type : function
 ```
 ### Examples
 ```javascript
