@@ -11,6 +11,7 @@ function decor(property,filter,predicator){
 var Decorator = function(name,target,property,filter,predicator){
 	if(!name || !target || !property || !filter) return undefined;
 	var _this = this;
+	_this.name = name;
 	_this.property = property;
 	_this.filter = filter; 
 	_this.predicator = predicator; 
@@ -18,4 +19,10 @@ var Decorator = function(name,target,property,filter,predicator){
 	if(!target.hasOwnProperty('decorators'))target.decorators = {};
 	target.decorators[name] = _this;
 	target[name] = decor(property,filter,predicator);
+}
+
+Decorator.prototype.addTarget = function(target){
+	this.tartgets.push(target);
+	target[this.name] = decor(this.property,this.filter,this.predicator);
+	return this;
 }
