@@ -2,7 +2,7 @@
 Decorator pattern for JavaScript
 ## For fast usage
 ```
-Object.newproperty = decor(property,filter,predicator);
+Object.newproperty = decor(property,filter[,predicator]);
 ```
 ### Examples
 ```javascript
