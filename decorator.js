@@ -1,4 +1,5 @@
 'use strict';
+
 function decor(property,filter,predicator){
 	return function(){
 		var target = this;
@@ -22,7 +23,22 @@ var Decorator = function(name,target,property,filter,predicator){
 }
 
 Decorator.prototype.addTarget = function(target){
-	this.tartgets.push(target);
-	target[this.name] = decor(this.property,this.filter,this.predicator);
+	if(this.tartgets.indexOf(target) === -1){
+		this.tartgets.push(target);	
+		target[this.name] = decor(this.property,this.filter,this.predicator);
+		if(!target.hasOwnProperty('decorators'))target.decorators = {};
+		target.decorators[this.name] = this;
+	}	
+	return this;
+}
+
+Decorator.prototype.removeTarget = function(target){
+	var t = this.tartgets,
+		i = t.indexOf(target);	
+	if(i !== -1){		
+		this.tartgets = t.slice(0,i).concat(t.slice(i+1));
+		delete(target[this.name]);
+		delete(target.decorators[this.name]);
+	}
 	return this;
 }
