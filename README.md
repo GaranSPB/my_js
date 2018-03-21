@@ -28,27 +28,27 @@ var decorator = new Decorator(name,target,property,filter[,predicator]);
 ```
 #### name
 ```
-New property name for **target** object 
+New property name for target object 
 Type : String
 ```
 #### target
 ```
-Owner of decorating **property**
+Owner of decorating property
 Type : Object
 ```
 #### property
 ```
-Decorating **targets property**
+Decorating targets property
 Type : mixed
 ```
 #### filter
 ```
-Makes changes to input value transfers it to **targets property**
+Makes changes to input value transfers it to targets property
 Type : function
 ```
 #### predicator | optional
 ```
-Takes a value and determines to execute the next script or not. Returns **true** or **false**
+Takes a value and determines to execute the next script or not. Returns true or false
 Type : function
 ```
 ### Examples
