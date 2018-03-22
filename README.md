@@ -26,6 +26,16 @@ var inpNode = document.getElementById('inp');// DOM Node as an object for decora
 ```
 var decorator = new Decorator(name,target,property,filter[,predicator]);
 ```
+```javascript
+var input = document.getElementById('inp');
+	
+var round100 = new Decorator('r100',input,'value',function(v){
+	return '$' + Math.round(v/100) * 100;
+});
+
+input.r100(12543); //$12500 input updated like: input = '$12500';
+
+```
 #### name
 ```
 New property name for target object 
