@@ -37,10 +37,10 @@ Decorator.prototype.decor = function(target){
 
 Decorator.prototype.addTarget = function(target){
 	if(this.tartgets.indexOf(target) === -1){
-		this.tartgets.push(target);	
-		target[this.name] = decor(this.property,this.filter,this.predicator);
+		this.tartgets.push(target);
 		if(!target.hasOwnProperty('decorators'))target.decorators = {};
-		target.decorators[this.name] = this;
+		target.decorators[this.name] = this;	
+		target[this.name] = this.decor(target);		
 	}	
 	return this;
 }
@@ -53,5 +53,20 @@ Decorator.prototype.removeTarget = function(target){
 		delete(target[this.name]);
 		delete(target.decorators[this.name]);
 	}
+	return this;
+}
+
+Decorator.prototype.setFilter = function(filter){
+	if(filter instanceof Function) this.filter = filter;
+	return this;
+}
+
+Decorator.prototype.setPred = function(predicator){
+	if(predicator instanceof Function) this.predicator = predicator;
+	return this;
+}
+
+Decorator.prototype.removePred = function(){
+	this.predicator = undefined;
 	return this;
 }
