@@ -55,3 +55,18 @@ Decorator.prototype.removeTarget = function(target){
 	}
 	return this;
 }
+
+Decorator.prototype.setFilter = function(filter){
+	if(filter instanceof Function) this.filter = filter;
+	return this;
+}
+
+Decorator.prototype.setPred = function(predicator){
+	if(predicator instanceof Function) this.predicator = predicator;
+	return this;
+}
+
+Decorator.prototype.removePred = function(){
+	this.predicator = undefined;
+	return this;
+}
