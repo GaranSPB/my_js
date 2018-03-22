@@ -37,10 +37,10 @@ Decorator.prototype.decor = function(target){
 
 Decorator.prototype.addTarget = function(target){
 	if(this.tartgets.indexOf(target) === -1){
-		this.tartgets.push(target);	
-		target[this.name] = decor(this.property,this.filter,this.predicator);
+		this.tartgets.push(target);
 		if(!target.hasOwnProperty('decorators'))target.decorators = {};
-		target.decorators[this.name] = this;
+		target.decorators[this.name] = this;	
+		target[this.name] = this.decor(target);		
 	}	
 	return this;
 }
