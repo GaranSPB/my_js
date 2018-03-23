@@ -1,26 +1,5 @@
 # Decorator
 Decorator pattern for JavaScript
-## For fast usage
-```
-Object.newproperty = decor(property,filter[,predicator]);
-```
-### Examples
-```javascript
-var inpNode = document.getElementById('inp');// DOM Node as an object for decoration
-
-	var filter = function(value,currency){// define filter function
-		return value + ' ' + currency + '.';
-	}
-	var predicator = function(value,currency){// define predicator function
-		return !isNaN(value) && currency.length <= 3;
-	}
-
-	inpNode.cur = decor('value',filter,predicator);// add filter for base property 'value'
-	inpNode.cur(20,'eur') //HTML input value '20 eur.'
-	inpNode.cur(20,'rubles') //no chacnges, blocked by predicator
-	inpNode.cur('30','rub') //HTML input value '30 rub.'
-	inpNode.cur('a320','rubles') //no chacnges, blocked by predicator
-```
 ## Syntax
 ### Constructor
 ```
@@ -33,7 +12,7 @@ var round100 = new Decorator('r100',input,'value',function(v){
 	return '$' + Math.round(v/100) * 100;
 });
 
-input.r100(12543); //$12500 input updated like: input = '$12500';
+input.r100(12543); // '$12500' input updated like: input = '$12500';
 
 ```
 #### name
@@ -61,15 +40,56 @@ Type : function
 Takes a value and determines to execute the next script or not. Returns true or false
 Type : function
 ```
-### Examples
+### addTarget(target) 
 ```javascript
-var in2 = document.getElementById('inp2');
-var addRub = new Decorator('addrub',in2,'value',function(value){
-	return value + '.00 RUB.';
-});		
-var round100 = new Decorator('r100',in2,'addrub',function(value){
-	return Math.round(value/100) * 100;
+var input1 = document.getElementById('inp1');
+var input2 = document.getElementById('inp2');
+
+var round100 = new Decorator('r100',input,'value',function(v){
+	return '$' + Math.round(v/100) * 100;
 });
-in2.addrub(12543); //12543.00 RUB.
-in2.r100(12543);   //12500.00 RUB.
+
+round100.addTarget(input2);//adds r100 method to new target 
+
+input1.r100(12543); // '$12500'
+input2.r100(232); // '$200'
+
+```
+### removeTarget(target)
+```javascript
+round100.removeTarget(input2);//removes the dependency between a target and decorator 
+
+input1.r100(12543); // '$12500'
+input2.r100(232); //Uncaught TypeError
+
+```
+### setFilter(filter)
+```javascript
+round100.setFilter(function(v){
+	return Math.round(v/1000) * 1000 + ' Rub.';
+});
+
+input2.r100(6890); // '7000 Rub.'
+
+```
+### setPred(predicator)
+```javascript
+round100.setPred(function(v){
+	return v > 10000';
+});
+
+input2.r100(8888); // '7000 Rub.' - old value
+input2.r100(11111); // '11000 Rub.' 
+
+```
+### removePred()
+```javascript
+round100.removePred();
+
+input2.r100(8888); // '9000 Rub.'
+
+```
+### For fast usage
+```
+Object.newproperty = decor(property,filter[,predicator]); // you can't control the object via the decorator
 ```
