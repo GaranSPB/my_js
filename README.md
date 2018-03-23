@@ -1,5 +1,6 @@
 # Decorator
 Decorator pattern for JavaScript
+Allows you to dynamically change the behavior of objects
 ## Syntax
 ### Constructor
 ```
