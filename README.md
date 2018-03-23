@@ -75,7 +75,7 @@ input2.r100(6890); // '7000 Rub.'
 ### setPred(predicator)
 ```javascript
 round100.setPred(function(v){
-	return v > 10000';
+	return v > 10000;
 });
 
 input2.r100(8888); // '7000 Rub.' - old value
