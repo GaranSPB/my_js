@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+	<title>Testing</title>	
+	<link rel="stylesheet" type="text/css" href="css/testing.css">
+	<link rel="stylesheet" type="text/css" href="js/fader/ig_fader.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	
+	<script src="js/fader/script.js"></script>
+	<script src="js/fader/ig_fader.js"></script>
+	<script src="js/loop.js"></script>
+</head>
+<body>
+	<div class="control">
+		<p><label>markup&nbsp;&nbsp;<input type="text" name="markup" value="10x1"></label></p>
+		<p><label>fadeTime&nbsp;&nbsp;<input type="text" name="fadeTime" value="800"></label></p>
+		<p><label>cellFadeTime&nbsp;&nbsp;<input type="text" name="cellFadeTime" value="800"></label></p>
+		<p>animation&nbsp;&nbsp;
+			<select name="animation">
+				<option value="fadeOut" selected="selected">fadeOut</option>
+				<option value="slideUp" >slideUp</option>
+			</select>
+		</p>
+		<p>fadeType&nbsp;&nbsp;
+			<select name="fadeType">
+				<option value="default"  selected="selected" >default</option>
+				<option value="wave" >wave</option>
+			</select>
+		</p>
+		<p>directionX</p>
+		<p><label>forward&nbsp;&nbsp;<input type="radio" name="directionX" checked="checked" value="forward">&nbsp;&nbsp;</label><label>backward&nbsp;&nbsp;<input type="radio" name="directionX" value="backward"></label></p>
+		<p>directionY</p>
+		<p><label>forward&nbsp;&nbsp;<input type="radio" name="directionY" checked="checked" value="forward">&nbsp;&nbsp;</label><label>backward&nbsp;&nbsp;<input type="radio" name="directionY" value="backward"></label></p>
+		<p>mainAxis</p>
+		<p><label>X&nbsp;&nbsp;<input type="radio" name="mainAxis" checked="checked" value="x">&nbsp;&nbsp;</label><label>Y&nbsp;&nbsp;<input type="radio" name="mainAxis" value="y"></label></p>
+		<button id="start">start</button>
+	</div>
+	<div class="wrapper">
+		<div id="t" class="img">
+			
+		</div>		
+	</div>
+</body>
+</html>
