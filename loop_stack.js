@@ -44,3 +44,21 @@ Loop.prototype.append = function(a){
 	});
 	return loop;
 };
+
+var Stack = function(arr){
+    this.index = 0;
+    this.data = arr;
+    this.length = arr.length;
+    this.end = false;
+}
+
+Stack.prototype.val = function () {
+    return !this.end ? this.data[this.index] : undefined;
+}
+
+Stack.prototype.next = function () {
+    var result = this.val();
+    this.index += 1;
+    if(this.index > this.length - 1) this.end = true;
+    return result;
+}
