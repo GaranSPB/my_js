@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EASY WORKSPACE</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/tabs.css">
+    <script src="lib/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div class="header wrapper">
+    <div class="content"><h1>EASY WORKSPACE</h1>
+        <h2 id="user"></h2></div>
+</div>
+<div class="main wrapper">
+    <div class="content">
+        <div class="_wrapper bow">
+            <div class="tabs">
+                <div tab="myBow" class="active ig_tabs"><h2>MY BOW</h2></div>
+                <div tab="fullBow" class="ig_tabs"><h2>FULL BOW</h2></div>
+            </div>
+            <div class="_control">
+                <div controller="reverse">r</div>
+                <div controller="sort">s</div>
+            </div>
+            <div class="_content">
+                <div class="my_bow_content ig_blocks"></div>
+                <div class="bow_content ig_blocks"></div>
+            </div>
+        </div>
+        <div class="_wrapper info">
+            <div class="tabs">
+                <div tab="info" class="active ig_tabs "><h2>INFO</h2></div>
+                <div tab="modules" class="ig_tabs"><h2>MODULES</h2></div>
+            </div>
+            <div class="_control">
+                <div class="info_control_wrapper"></div>
+            </div>
+            <div class="_content">
+                <div tab="info" class="ig_blocks project_info_content">
+                </div>
+                <div tab="modules" class="ig_blocks" ></div>
+                <div class="ig_blocks hidden_content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer wrapper">
+    <div class="content"><h2>In the development : last bow data update 03.05.2018</h2></div>
+</div>
+<div class="followUp"></div>
+</body>
+<script src="js/loop.js"></script>
+<script src="js/tabs.js"></script>
+<script src="js/proto.js"></script>
+<script src="js/ParsedCSV.js"></script>
+<script src="js/BowStorage.js"></script>
+<script src="js/WorkSpace.js"></script>
+<script src="js/script.js"></script>
+</html>
