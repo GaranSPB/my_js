@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Animator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="mid-lane-wrapper">
+    <div class="mid-lane-container">
+        <div class="mid_wrapper">
+            <div class="flex-row-container">
+                <div class="column">
+                    <form id="form">
+                        <div tabs="wrapper" class="tabs-container" effect="min-height">
+                            <ul tabs="tab-set" class="tabs-wrapper">
+                                <li tabs="tab" class="tab-item active" tab-hash="#canvas">Canvas</li>
+                                <li tabs="tab" class="tab-item" tab-hash="#slide">Slide</li>
+                                <li tabs="tab" class="tab-item" tab-hash="#project">Project</li>
+                            </ul>
+                            <div tabs="block-set" class="blocks-wrapper">
+                                <div tabs="block" class="tab-block-item active canvas-block">
+                                    <div class="form-row">
+                                        <label>Clip file name</label><input type="text" name="clip_filename" value="new_clip">
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Static Img src</label><input type="text" name="canvas_src" value="test/static.jpg">
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Step Waiting</label><input type="text" name="step_waiting" value="1000">
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Image prefix</label><input type="text" name="img_prefix" value="">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>Width</label><input type="text" name="canvas_width" value="200">
+                                        <label>Height</label><input type="text" name="canvas_height" value="200">
+                                    </div>
+                                    <div class="form-row buttons">
+                                        <button action="canvasUpdate">Update</button>
+                                    </div>
+                                </div>
+                                <div tabs="block" class="tab-block-item slide-block">
+                                    <div class="form-row">
+                                        <label>Current Slide Name</label><input id="sn" type="text" name="current_slide" value="init">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>Slide html</label><input type="text" name="slide_html" value="">
+                                        <label>Timing</label><input type="text" name="timing_function" value="ease">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>Slide Img</label><input type="text" name="slide_src" value="">
+                                        <label>Background</label><input type="text" name="bgc" value="#fff">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>Prepare</label><input type="text" name="prepare_time" value="0">
+                                        <label>Animation</label><input type="text" name="animation_time" value="1000">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>Width</label><input type="text" name="width" value="100%">
+                                        <label>Height</label><input type="text" name="height" value="100%">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>From top</label><input type="text" name="from_top" value="0">
+                                        <label>To top</label><input type="text" name="to_top" value="0">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>From left</label><input type="text" name="from_left" value="0">
+                                        <label>To left</label><input type="text" name="to_left" value="0">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>From opac.</label><input type="text" name="from_opacity" value="1">
+                                        <label>To opac.</label><input type="text" name="to_opacity" value="1">
+                                    </div>
+                                    <div class="form-row double">
+                                        <label>From scale</label><input type="text" name="from_scale" value="1">
+                                        <label>To scale</label><input type="text" name="to_scale" value="1">
+                                    </div>
+                                    <div class="form-row buttons">
+                                        <button id="pb" action="prevSlide">Prev</button>
+                                        <button id="nb" action="nextSlide">Next</button>
+                                        <button action="slideUpdate">Update</button>
+                                        <button action="slidePlay">Play</button>
+                                        <button action="addSlide">Add</button>
+                                        <button action="refreshClip">Refresh</button>
+                                        <button action="playClip" class="play-clip">Play Clip</button>
+                                        <button action="stopClip">Stop Clip</button>
+                                    </div>
+                                </div>
+                                <div id="project" tabs="block" class="tab-block-item">
+                                    <div class="form-row">
+                                        <label class="project-name"></label>
+                                    </div>
+                                    <div class="form-row">
+                                        <ul class="slides">
+                                        </ul>
+                                    </div>
+                                    <div class="form-row">
+                                        <textarea id="json"></textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Load from file</label><input type="file" id="load">
+                                    </div>
+                                    <div class="form-row buttons">
+                                        <button action="refreshClip">Refresh</button>
+                                        <button action="playClip" class="play-clip">Play Clip</button>
+                                        <button action="stopClip">Stop Clip</button>
+                                        <button action="saveClip">Save Clip</button>
+                                        <button action="reset">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <section class="preview-wrapper">
+                        <div id="canvas">
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://www.citibank.ru/russia/js/markup/tabs.js"></script>
+<script src="https://www.citibank.ru/russia/js/ig_launcher.js"></script>
+<script src="animate_slider.js"></script>
+<script src="script.js"></script>
+
+</html>
