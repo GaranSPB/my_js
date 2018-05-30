@@ -1,0 +1,124 @@
+.ig_range_input-wrapper{
+    min-width: 280px;
+    padding: 20px 0 30px;
+    box-sizing: content-box;
+}
+.ig_range_input-main_scale{
+    width: 100%;
+    position: relative;
+    height: 1px;
+    background-color: #555;
+}
+.ig_range_input-hidden_scale{
+    height: 3px;
+    pointer-events: none;
+    background-color: #056dae;
+    position: absolute;
+    top: -1px;
+    width: 0%;
+}
+.ig_range_input-main_scale>span{
+    position: absolute;
+    width: 1px;
+    bottom: -5px;
+    height: 5px;
+    background-color: #555;
+}
+span._label {
+    position: absolute;
+    bottom: -24px;
+    transform: translateX(-50%);
+    padding-left: 1px;
+}
+span._label:hover{
+    cursor:pointer;
+}
+.ig_range_input-main_scale>._limit:last-of-type{
+    transform: translateX(-1px);
+}
+.ig_range_input-main_scale ._limit{
+    height: 11px;
+}
+._limit.highlight {
+    height: 13px;
+    width: 3px;
+    transform: translateX(-1px);
+    bottom: -6px;
+    background-color: #056dae;
+}
+._limit._first>span {
+    transform: translateX(0);
+}
+._limit._last>span {
+    transform: translateX(-100%);
+}
+span.highlight{
+    width: 3px;
+    bottom: -6px;
+    height: 6px;
+    background-color: #056dae;
+    transform: translateX(-1px);
+}
+span.highlight ._label{
+    bottom: -23px;
+    padding-left: 3px;
+}
+.ig_range_input-main_scale ._click_bar{
+    width: calc(100% + 10px);
+    height: 21px;
+    position: absolute;
+    left: -5px;
+    top: -10px;
+    background-color: #056dae;
+    border-radius: 5px;
+    opacity: 0;
+}
+.ig_range_input-main_scale ._slider{
+    width: 21px;
+    height:21px;
+    bottom: -10px;
+    transform: translateX(-10px);
+    background-color: #056dae;
+    border-radius: 10px;
+}
+.ig_range_input-main_scale ._slider.dragging{
+    width: 21px;
+    height: 21px;
+    bottom: -12px;
+    transform: translateX(-11px);
+    background-color: #fff;
+    border: 2px solid #056dae;
+    border-radius: 12px;
+}
+.ig_range_input-main_scale ._slider:hover{
+    cursor: pointer;
+}
+._three_sticks{
+    height: 7px;
+    width: 1px;
+    background-color: #fff;
+    position: absolute;
+    left:10px;
+    bottom: 7px;
+}
+.dragging ._three_sticks{
+    background-color: #056dae;
+}
+._three_sticks::after,
+._three_sticks::before{
+    content:'';
+    width: 1px;
+    height:7px;
+    background-color: #fff;
+    position: absolute;
+}
+.dragging ._three_sticks::after,
+.dragging ._three_sticks::before{
+    background-color: #056dae;
+}
+._three_sticks::after{
+    left: -4px;
+}
+._three_sticks::before{
+    left: 4px;
+}
