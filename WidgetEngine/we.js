@@ -5,8 +5,6 @@ var WidgetEngine = function () {
     _this.actions = {};
 	_this.ajaxSettings = {};
     _this.storage = new WidgetStorage();
-	_this.notification = new Notification();
-	_this.localization = new Localization();
     _this.setActions = actions => Object.assign(_this.actions,actions);
 	_this.setAjaxSettings = ajaxSettings => Object.assign(_this.ajaxSettings,ajaxSettings);
     _this.setSettingsWrapper = $obj => _this.wrapper = $obj;
