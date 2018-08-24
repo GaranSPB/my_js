@@ -262,6 +262,7 @@ var WidgetEngine = function () {
     };
 	
 	//test for new branch
+	//end of branch
 	
     return this;
 };
