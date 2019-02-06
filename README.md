@@ -4,7 +4,7 @@ Allows you to dynamically change the behavior of objects
 ## Syntax
 ### Constructor
 ```
-var decorator = new Decorator(name,target,property,filter[,predicator]);
+var decorator = new Decorator(name,target,property,filter[,predicat]);
 ```
 ```javascript
 var input = document.getElementById('inp');
@@ -36,7 +36,7 @@ Type : mixed
 Makes changes to input value transfers it to targets property
 Type : function
 ```
-#### predicator | optional
+#### predicat | optional
 ```
 Takes a value and determines to execute the next script or not. Returns true or false
 Type : function
@@ -73,7 +73,7 @@ round100.setFilter(function(v){
 input2.r100(6890); // '7000 Rub.'
 
 ```
-### setPred(predicator)
+### setPred(predicat)
 ```javascript
 round100.setPred(function(v){
 	return v > 10000;
@@ -92,5 +92,5 @@ input2.r100(8888); // '9000 Rub.'
 ```
 ### For fast usage
 ```
-Object.newproperty = decor(property,filter[,predicator]); // you can't control the object via the decorator
+Object.newproperty = decor(property,filter[,predicat]); // you can't control the object via the decorator
 ```
