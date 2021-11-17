@@ -10,8 +10,7 @@ $(document).ready(function(){
 		imgArray = [
 			'test1.jpg',
 			'test2.jpg',
-			'test3.jpg',
-			'test4.jpg',
+			'test3.jpg'
 		],
 		loop = new Loop(imgArray),
 		bgReplace = function(){
